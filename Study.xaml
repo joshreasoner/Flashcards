@@ -1,0 +1,39 @@
+﻿<Window x:Class="Flashcards.Study"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Flashcards"
+        mc:Ignorable="d"
+        Title="Study" Height="600" Width="900">
+    <Grid Background="BurlyWood">
+        <StackPanel Orientation="Horizontal" Margin="22,28,155,480">
+            <Button Content="Home" Height="40" FontSize="22" Width="110" Margin="1,1,1,1" Click="BtnHomeClick" BorderBrush="Black" Background="Bisque">
+                <Button.Effect>
+                    <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+                </Button.Effect>
+            </Button>
+            <Label x:Name="lblQuestion" Content="Title of Deck" VerticalAlignment="Center" FontSize="34" Margin="230,0,0,0" ></Label>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="149,98,125,75">
+            <Button x:Name="Prompt" Width="600" Height="280" Margin="5,10,5,80" Background="Aquamarine" BorderBrush="Black" BorderThickness="3" Click="BtnPromptClick">
+                <Button.Effect>
+                    <DropShadowEffect BlurRadius="10" ShadowDepth="10"/>
+                </Button.Effect>
+                <TextBox x:Name="txtPrompt" Text="Question" TextWrapping="Wrap" FontSize="40" Background="Aquamarine" BorderBrush="Aquamarine" IsReadOnly="True"></TextBox>
+            </Button>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="150,455,130,65">
+            <Button x:Name="BtnBack" Content="&lt;" FontSize="22" Width="80" Margin="1,1,1,1" Click="BtnBackClick" BorderBrush="Black" Background="YellowGreen" BorderThickness="1.5">
+                <Button.Effect>
+                    <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+                </Button.Effect>
+            </Button>
+            <Button x:Name="BtnFwd" Content=">" FontSize="22" Width="80" Margin="440,1,1,1" Click="BtnForwardClick" BorderBrush="Black" Background="YellowGreen" BorderThickness="1.5">
+                <Button.Effect>
+                    <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+                </Button.Effect>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>
