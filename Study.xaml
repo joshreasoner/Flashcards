@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Flashcards"
         mc:Ignorable="d"
         Title="Study" Height="600" Width="900">
-    <Grid Background="BurlyWood">
+    <Grid Background="Bisque">
         <StackPanel Orientation="Horizontal" Margin="22,28,155,480">
             <Button Content="Home" Height="40" FontSize="22" Width="110" Margin="1,1,1,1" Click="BtnHomeClick" BorderBrush="Black" Background="Bisque">
                 <Button.Effect>
@@ -16,11 +16,14 @@
             <Label x:Name="lblQuestion" Content="Title of Deck" VerticalAlignment="Center" FontSize="34" Margin="230,0,0,0" ></Label>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Margin="149,98,125,75">
-            <Button x:Name="Prompt" Width="600" Height="280" Margin="5,10,5,80" Background="Aquamarine" BorderBrush="Black" BorderThickness="3" Click="BtnPromptClick">
+            <Button x:Name="Prompt" Width="600" Height="280" Margin="5,10,5,80" BorderBrush="Black" BorderThickness="3" Click="BtnPromptClick">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Notecard.jpg"/>
+                </Button.Background>
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="10" ShadowDepth="10"/>
                 </Button.Effect>
-                <TextBox x:Name="txtPrompt" Text="Question" TextWrapping="Wrap" FontSize="40" Background="Aquamarine" BorderBrush="Aquamarine" IsReadOnly="True"></TextBox>
+                <TextBox x:Name="txtPrompt" Text="Question" TextWrapping="Wrap" FontSize="40" Background="{x:Null}" BorderBrush="{x:Null}" IsReadOnly="True" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}"></TextBox>
             </Button>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Margin="150,455,130,65">

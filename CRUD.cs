@@ -12,6 +12,7 @@ namespace Flashcards
         void AddDeck(Deck deck);
         void AddCard(Card deck);
         void DeleteCard(Card card);
+        void DeleteDeck(Deck deck);
         void UpdateCard(int id, Card card);
         ICollection<Card> GetAllCards();
         ICollection<Deck> GetAllDecks();
@@ -23,12 +24,12 @@ namespace Flashcards
     }
     class DeckRepository : ICRUD
     {
-        FlashCardEntities entities;
+        FlashCardsEntities entities;
 
 
         public DeckRepository()
         {
-            entities = new FlashCardEntities();
+            entities = new FlashCardsEntities();
         }
 
         public void AddCard(Card card)
@@ -46,6 +47,12 @@ namespace Flashcards
         public void DeleteCard(Card card)
         {
             entities.Cards.Remove(card);
+            entities.SaveChanges();
+        }
+
+        public void DeleteDeck(Deck deck)
+        {
+            entities.Decks.Remove(deck);
             entities.SaveChanges();
         }
 

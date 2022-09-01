@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="FlashCardsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="FlashCards.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Cards">
           <Key>
             <PropertyRef Name="Id" />
@@ -36,7 +36,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="FlashCardsModelStoreContainer">
+        <EntityContainer Name="FlashCardsStoreContainer">
           <EntitySet Name="Cards" EntityType="Self.Cards" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Decks" EntityType="Self.Decks" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="Deck_Cards_Id" Association="Self.Deck_Cards_Id">
@@ -48,7 +48,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="FlashCardsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="FlashCards" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Card">
           <Key>
             <PropertyRef Name="Id" />
@@ -82,7 +82,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="FlashCardEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="FlashCardsEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Cards" EntityType="Self.Card" />
           <EntitySet Name="Decks" EntityType="Self.Deck" />
           <AssociationSet Name="Deck_Cards_Id" Association="Self.Deck_Cards_Id">
@@ -95,9 +95,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="FlashCardsModelStoreContainer" CdmEntityContainer="FlashCardEntities">
+        <EntityContainerMapping StorageEntityContainer="FlashCardsStoreContainer" CdmEntityContainer="FlashCardsEntities">
           <EntitySetMapping Name="Cards">
-            <EntityTypeMapping TypeName="FlashCardsModel.Card">
+            <EntityTypeMapping TypeName="FlashCards.Card">
               <MappingFragment StoreEntitySet="Cards">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Deck_Id" ColumnName="Deck_Id" />
@@ -108,7 +108,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Decks">
-            <EntityTypeMapping TypeName="FlashCardsModel.Deck">
+            <EntityTypeMapping TypeName="FlashCards.Deck">
               <MappingFragment StoreEntitySet="Decks">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />

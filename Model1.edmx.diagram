@@ -4,10 +4,10 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ddd2c1140d1f4daf83db883ca63682bd" Name="Diagram1">
-        <EntityTypeShape EntityType="FlashCardsModel.Card" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="FlashCardsModel.Deck" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
-        <AssociationConnector Association="FlashCardsModel.Deck_Cards_Id" ManuallyRouted="false" />
+      <Diagram DiagramId="e56081fa4f0547c5b4fc6077a83df99a" Name="Diagram1">
+        <EntityTypeShape EntityType="FlashCards.Card" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FlashCards.Deck" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <AssociationConnector Association="FlashCards.Deck_Cards_Id" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

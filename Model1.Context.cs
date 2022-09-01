@@ -13,10 +13,10 @@ namespace Flashcards
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class FlashCardEntities : DbContext
+    public partial class FlashCardsEntities : DbContext
     {
-        public FlashCardEntities()
-            : base("name=FlashCardEntities")
+        public FlashCardsEntities()
+            : base("name=FlashCardsEntities")
         {
         }
     

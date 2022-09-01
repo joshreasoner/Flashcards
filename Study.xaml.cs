@@ -27,34 +27,31 @@ namespace Flashcards
     
     public partial class Study : Window
     {
-        FlashCardEntities entity;
+        FlashCardsEntities entity;
         DeckRepository deckRepository;
-        
-
         int decknum;
         int cardnum=0;
-        
         
         public Study(int deckid)
         {
             InitializeComponent();
-            entity = new FlashCardEntities();
+            entity = new FlashCardsEntities();
             deckRepository = new DeckRepository();
-            
+
             Deck deck = deckRepository.FindDeck(deckid);
             decknum = deck.Id;
             lblQuestion.Content = deck.Name;
 
             // Grab all the cards that belong to a specific deck
             List<Card> activecards = new List<Card>(deckRepository.GetDeckCards(decknum));
-           
+
 
             // Grab the first card from the filtered set above
 
             Card activecard = activecards[cardnum];
             // Set the test question
             txtPrompt.Text = activecard.Question;
-            
+
         }
         private void BtnBackClick(object sender, RoutedEventArgs e)
         {
@@ -90,7 +87,6 @@ namespace Flashcards
                 txtPrompt.Text = activecard.Question;
             }
         }
-
         private void BtnHomeClick(object sender, RoutedEventArgs e)
         {
             MainWindow main = new MainWindow();
@@ -106,7 +102,8 @@ namespace Flashcards
 
             if (txtPrompt.Text == activecard.Question) { txtPrompt.Text = activecard.Answer; } // Q or A
             else { txtPrompt.Text = activecard.Question; }
-            
+
+
         }
     }
 }

@@ -7,35 +7,48 @@
         mc:Ignorable="d"
         Title="Modify" Height="600" Width="900">
     <Grid Background="Gainsboro">
-        <StackPanel Orientation="Horizontal" Margin="50,11,40,441">
-            <Button x:Name="BtnHome" Content="Home" Height="40" FontSize="22" Width="110" Margin="10,1,1,1" Click="BtnHomeClick" BorderBrush="Black" Background="Bisque">
+        <StackPanel Orientation="Horizontal" Margin="22,28,29,480">
+            <Button x:Name="BtnHome" Content="Home" Height="40" FontSize="22" Width="110" Margin="10,1,1,1" BorderBrush="Black" Background="Bisque" RenderTransformOrigin="-1.986,7.263" Click="BtnHomeClick">
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
                 </Button.Effect>
             </Button>
-            <Label x:Name="lblTitle" Content="Deck Title" HorizontalAlignment="Center" Margin="200,0,0,0" VerticalAlignment="Top" FontSize="36" MinWidth="200" Height="67"/>
+            <Label x:Name="lblEnterTitle" Content="Title of New Deck:" VerticalAlignment="Center" FontSize="24" Margin="70,0,0,0"/>
+            <TextBox x:Name="txtDeckTitle" TextAlignment="Center" Width="265" FontSize="28" Margin="20,0,0,0" Height="50" Foreground="DimGray"/>
+            <Button x:Name="BtnSubmit" Content="Submit" FontSize="20" Height="50" Width="90" VerticalAlignment="Center" Margin="50,0,0,0" Background="Gray" Click="BtnSubmit_Click">
+                <Button.Effect>
+                    <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+                </Button.Effect>
+            </Button>
+            <Grid Width="100"/>
         </StackPanel>
-        <Grid Margin="26,-4,-26,4">
-            <DataGrid x:Name="gridCards" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserSortColumns="False" Margin="45,135,489,69" HeadersVisibility="Column"  SelectionChanged="RowSelected" AutoGenerateColumns="False" AlternatingRowBackground="#FF85A7D2">
-                <DataGrid.Columns>
-                    <DataGridTextColumn CanUserSort="False" CanUserReorder="False" DisplayIndex="0" IsReadOnly="True" Visibility="Collapsed"/>
-                    <DataGridTextColumn CanUserSort="False" CanUserReorder="False" DisplayIndex="1" IsReadOnly="True" Visibility="Collapsed"/>
-                    <DataGridTextColumn CanUserSort="False" CanUserReorder="False" DisplayIndex="2" IsReadOnly="True" Visibility="Visible"/>
-                    <DataGridTextColumn CanUserSort="False" CanUserReorder="False" DisplayIndex="3" IsReadOnly="True" Visibility="Visible"/>
-                    <DataGridTextColumn CanUserSort="False" CanUserReorder="False" DisplayIndex="4" IsReadOnly="True" Visibility="Visible"/>
-                </DataGrid.Columns>
-            </DataGrid>
-        </Grid>
         <Label x:Name="lblPrompt" Content="Question/ Prompt:" HorizontalAlignment="Left" Margin="548,115,0,0" VerticalAlignment="Top" FontSize="20" Width="188" Height="43"/>
-        <TextBox x:Name="txtPrompt" Text=" " Height="51" Margin="455,158,61,0" TextWrapping="Wrap" TextAlignment="Left" VerticalAlignment="Top" Width="384" Foreground="Black" FontSize="18"/>
-        <Label x:Name="lblAnswer" Content="Answer" HorizontalAlignment="Left" Margin="589,266,0,0" VerticalAlignment="Top" FontSize="20" Width="169" Height="43"/>
-        <TextBox x:Name="txtAnswer" TextWrapping="Wrap" HorizontalAlignment="Left" Height="136" Margin="455,313,0,0" VerticalAlignment="Top" Width="389" Foreground="Black" FontSize="18"/>
-        <Button x:Name="UpdateCard" Content="Update Card" FontSize="20" Background="SandyBrown" Margin="692,498,61,36" Click="BtnUpdateClick">
+        <TextBox x:Name="txtPrompt" Text=" " Height="51" Margin="480,158,30,0" TextWrapping="Wrap" TextAlignment="Left" VerticalAlignment="Top" Width="384" Foreground="Black" FontSize="18"/>
+        <Label x:Name="lblAnswer" Content="Answer" HorizontalAlignment="Left" Margin="605,266,0,0" VerticalAlignment="Top" FontSize="20" Width="169" Height="43"/>
+        <TextBox x:Name="txtAnswer" Text=" " Margin="480,314,30,0" TextWrapping="Wrap" TextAlignment="Left" VerticalAlignment="Top" Width="384" Foreground="Black" FontSize="18" Height="139"/>
+  
+        <Label x:Name="lblTitle" Content="Deck Title" HorizontalAlignment="Left" Margin="361,29,0,0" VerticalAlignment="Top" FontSize="36" MinWidth="200" Height="67"/>
+        <Button x:Name="UpdateCard" Content="Update Card" FontSize="20" Background="SandyBrown" Margin="692,498,61,37" Click="BtnUpdateClick">
             <Button.Effect>
                 <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
             </Button.Effect>
         </Button>
-
+        <Button x:Name="BtnDelete" Content="Delete Card" FontSize="20" Background="RosyBrown" Margin="480,498,261,37" Click="BtnDeleteClick">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="BtnNewDeck" Content="New Deck" FontSize="20" Background="LightBlue" Click="BtnNewDeckClick" Margin="67,498,674,37">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="BtnAddCard" Content="Add Card" FontSize="20" Background="Lavender" Click="BtnAddCardClick" Margin="266,498,475,37">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <DataGrid x:Name="gridCards" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="47,161,474,130" SelectionMode="Single" SelectionChanged="RowSelected" AlternatingRowBackground="#FF7DD6B5" AlternationCount="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HeadersVisibility="None"/>
     </Grid>
 </Window>
 
