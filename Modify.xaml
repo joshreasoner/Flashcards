@@ -8,7 +8,7 @@
         Title="Modify" Height="600" Width="900">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/istockphoto-184613274-612x612.jpg" Opacity="0.7"/>
+            <ImageBrush ImageSource="/51iK3ltcRTL.jpg" Opacity="0.8"/>
         </Grid.Background>
         <StackPanel Orientation="Horizontal" Margin="22,28,29,480">
             <Button x:Name="BtnHome" Content="Home" Height="40" FontSize="22" Width="110" Margin="10,1,1,1" BorderBrush="Black" Background="Bisque" RenderTransformOrigin="-1.986,7.263" Click="BtnHomeClick">

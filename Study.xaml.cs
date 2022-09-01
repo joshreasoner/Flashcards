@@ -27,15 +27,13 @@ namespace Flashcards
     
     public partial class Study : Window
     {
-        FlashCardsEntities entity;
-        DeckRepository deckRepository;
-        int decknum;
+        private readonly DeckRepository deckRepository;
+        private readonly int decknum;
         int cardnum=0;
         
         public Study(int deckid)
         {
             InitializeComponent();
-            entity = new FlashCardsEntities();
             deckRepository = new DeckRepository();
 
             Deck deck = deckRepository.FindDeck(deckid);
@@ -89,6 +87,7 @@ namespace Flashcards
         }
         private void BtnHomeClick(object sender, RoutedEventArgs e)
         {
+            // Closes current form opens Main Window
             MainWindow main = new MainWindow();
             this.Visibility = Visibility.Hidden;
             main.Show();

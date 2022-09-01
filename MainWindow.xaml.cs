@@ -25,7 +25,17 @@ namespace Flashcards
     public partial class MainWindow : Window
     {
         DeckRepository deckRepository;
-        
+        public MainWindow()
+        {
+            InitializeComponent();
+            // Have to call Loaddecks function twice 1. to populate decks 2. so make visible if they are populated
+            LoadDecks();
+            DecksInvisible();
+            LoadDecks();
+            BtnStudy.Visibility = Visibility.Hidden;
+            BtnEdit.Visibility = Visibility.Hidden;
+            BtnDelete.Visibility = Visibility.Hidden;
+        }
         private void BtnsVisible()
         {
             BtnStudy.Visibility = Visibility.Visible;
@@ -59,17 +69,7 @@ namespace Flashcards
             BtnDeck5.IsEnabled = true;
             BtnDeck6.IsEnabled = true;        
         }
-        public MainWindow()
-        {
-            InitializeComponent();
-            // Have to call Loaddecks function twice 1. to populate decks 2. so make visible if they are populated
-            LoadDecks();
-            DecksInvisible();
-            LoadDecks();
-            BtnStudy.Visibility = Visibility.Hidden;
-            BtnEdit.Visibility = Visibility.Hidden;
-            BtnDelete.Visibility = Visibility.Hidden;
-        }
+ 
         private void LoadDecks()
         {
             // Method to populate each deck button with each card's data for use in methods.
@@ -223,25 +223,6 @@ namespace Flashcards
             BtnStudy.Visibility = Visibility.Hidden;
             BtnEdit.Visibility = Visibility.Hidden;
             BtnDelete.Visibility = Visibility.Hidden;
-        }
-
-        private void MakeCards()
-        {
-            // Call this method to quickly populate test data 
-            deckRepository = new DeckRepository();
-            
-            Deck deck = new Deck();
-            deck.Name = "Test Deck";
-            deckRepository.AddDeck(deck);
-
-            for (int i=0; i<9; i++)
-            {
-                Card card = new Card();
-                card.Deck_Id = deck.Id;
-                card.Question = $"This is Question: {i}";
-                card.Answer = $"And an Answer: {i}";
-                deckRepository.AddCard(card);
-            }
         }
     }
 }

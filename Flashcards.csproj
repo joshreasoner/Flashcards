@@ -154,6 +154,7 @@
     <Resource Include="istockphoto-184613274-612x612.jpg" />
     <Resource Include="printable-lined-paper.png" />
     <Resource Include="istockphoto-1308415974-170667a.jpg" />
+    <Resource Include="51iK3ltcRTL.jpg" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>

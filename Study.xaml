@@ -6,24 +6,24 @@
         xmlns:local="clr-namespace:Flashcards"
         mc:Ignorable="d"
         Title="Study" Height="600" Width="900">
-    <Grid Background="#FFF8F2DF">
+    <Grid Background="#FFDFD8E8">
         <StackPanel Orientation="Horizontal" Margin="22,28,155,480">
             <Button Content="Home" Height="40" FontSize="22" Width="110" Margin="1,1,1,1" Click="BtnHomeClick" BorderBrush="Black" Background="#FFEABF8C">
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
                 </Button.Effect>
             </Button>
-            <Label x:Name="lblQuestion" Content="Title of Deck" VerticalAlignment="Center" FontSize="34" Margin="230,0,0,0" ></Label>
+            <Label x:Name="lblQuestion" Content="Title of Deck" VerticalAlignment="Center" FontSize="34" Margin="230,0,0,0" FontFamily="Maiandra GD" FontWeight="Bold" ></Label>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Margin="149,98,125,75">
             <Button x:Name="Prompt" Width="600" Height="280" Margin="5,10,5,80" BorderBrush="Black" BorderThickness="3" Click="BtnPromptClick">
                 <Button.Background>
-                    <ImageBrush ImageSource="/Notecard.jpg"/>
+                    <ImageBrush ImageSource="/Notecard.jpg" Opacity="1.1"/>
                 </Button.Background>
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="10" ShadowDepth="10"/>
                 </Button.Effect>
-                <TextBox x:Name="txtPrompt" Text="Question" TextWrapping="Wrap" FontSize="40" Background="{x:Null}" BorderBrush="{x:Null}" IsReadOnly="True" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}"></TextBox>
+                <TextBox x:Name="txtPrompt" Text="Question" TextWrapping="Wrap" FontSize="40" Background="{x:Null}" BorderBrush="{x:Null}" IsReadOnly="True" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}" FontFamily="Bahnschrift Light" Foreground="#FF6034F4"></TextBox>
             </Button>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Margin="150,455,130,65">
