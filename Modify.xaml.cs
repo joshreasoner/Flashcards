@@ -19,7 +19,7 @@ namespace Flashcards
     /// </summary>
     public partial class Modify : Window
     {
-        FlashCardsEntities entity;
+        
         DeckRepository deckRepository;
 
         int decknum;
@@ -28,7 +28,7 @@ namespace Flashcards
         {
             InitializeComponent();
             deckRepository = new DeckRepository();
-            entity = new FlashCardsEntities();
+            
             Deck titledeck = deckRepository.FindDeck(deckid);
             lblTitle.Content = titledeck.Name;
             decknum = deckid;
@@ -54,17 +54,20 @@ namespace Flashcards
             if (txtPrompt.Text != String.Empty && txtAnswer.Text != String.Empty)
             {
                 Card updatecard = deckRepository.FindCard(cardnum);
-                updatecard.Question = txtPrompt.Text;
-                updatecard.Answer = txtAnswer.Text;
-                // known - t/f               
-                deckRepository.UpdateCard(cardnum, updatecard);
-               /* if (checkRead.IsChecked == true) { bookupdate.Read = true; }
-                else { bookupdate.Read = false; };*/
-                MessageBox.Show($"Card details updated!");
-                RefreshGrid();
-                txtAnswer.Clear();
-                txtPrompt.Clear();
-                gridCards.CurrentCell.Equals(1);
+                if (updatecard != null)
+                {
+                    updatecard.Question = txtPrompt.Text;
+                    updatecard.Answer = txtAnswer.Text;
+                    // known - t/f               
+                    deckRepository.UpdateCard(cardnum, updatecard);
+                    /* if (checkRead.IsChecked == true) { bookupdate.Read = true; }
+                     else { bookupdate.Read = false; };*/
+                    MessageBox.Show($"Card details updated!");
+                    RefreshGrid();
+                    txtAnswer.Clear();
+                    txtPrompt.Clear();
+                    gridCards.CurrentCell.Equals(1);
+                }
             }
         }
         private void BtnDeleteClick(object sender, RoutedEventArgs e)
@@ -92,6 +95,9 @@ namespace Flashcards
             lblPrompt.Visibility = Visibility.Hidden;
             gridCards.Visibility = Visibility.Hidden;
             lblTitle.Visibility = Visibility.Hidden;
+            BtnAddCard.Visibility = Visibility.Hidden;
+            BtnDelete.Visibility = Visibility.Hidden;
+            BtnUpdate.Visibility = Visibility.Hidden;
             // enable section to enter new deck title
             lblEnterTitle.Visibility = Visibility.Visible;
             txtDeckTitle.Visibility = Visibility.Visible;
@@ -122,6 +128,11 @@ namespace Flashcards
             lblPrompt.Visibility = Visibility.Visible;
             gridCards.Visibility = Visibility.Visible;
             lblTitle.Visibility = Visibility.Visible;
+            BtnAddCard.Visibility = Visibility.Visible;
+            BtnDelete.Visibility = Visibility.Visible;
+            BtnUpdate.Visibility = Visibility.Visible;
+            txtAnswer.Clear();
+            txtPrompt.Clear();
         }
 
 

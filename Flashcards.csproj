@@ -151,6 +151,9 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="istockphoto-184613274-612x612.jpg" />
+    <Resource Include="printable-lined-paper.png" />
+    <Resource Include="istockphoto-1308415974-170667a.jpg" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>

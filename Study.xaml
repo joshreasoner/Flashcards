@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:Flashcards"
         mc:Ignorable="d"
         Title="Study" Height="600" Width="900">
-    <Grid Background="Bisque">
+    <Grid Background="#FFF8F2DF">
         <StackPanel Orientation="Horizontal" Margin="22,28,155,480">
-            <Button Content="Home" Height="40" FontSize="22" Width="110" Margin="1,1,1,1" Click="BtnHomeClick" BorderBrush="Black" Background="Bisque">
+            <Button Content="Home" Height="40" FontSize="22" Width="110" Margin="1,1,1,1" Click="BtnHomeClick" BorderBrush="Black" Background="#FFEABF8C">
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
                 </Button.Effect>
@@ -27,12 +27,12 @@
             </Button>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Margin="150,455,130,65">
-            <Button x:Name="BtnBack" Content="&lt;" FontSize="22" Width="80" Margin="1,1,1,1" Click="BtnBackClick" BorderBrush="Black" Background="YellowGreen" BorderThickness="1.5">
+            <Button x:Name="BtnBack" Content="&lt;" FontSize="22" Width="80" Margin="1,1,1,1" Click="BtnBackClick" BorderBrush="Black" Background="#FFB2EFC6" BorderThickness="1.5">
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
                 </Button.Effect>
             </Button>
-            <Button x:Name="BtnFwd" Content=">" FontSize="22" Width="80" Margin="440,1,1,1" Click="BtnForwardClick" BorderBrush="Black" Background="YellowGreen" BorderThickness="1.5">
+            <Button x:Name="BtnFwd" Content=">" FontSize="22" Width="80" Margin="440,1,1,1" Click="BtnForwardClick" BorderBrush="Black" Background="#FFB2EFC6" BorderThickness="1.5">
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
                 </Button.Effect>

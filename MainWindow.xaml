@@ -6,65 +6,71 @@
         xmlns:local="clr-namespace:Flashcards"
         mc:Ignorable="d"
         Title="Flash Cards" Height="600" Width="900" MouseDoubleClick="MainDoubleClick">
-    <Grid Background="Cornsilk">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/istockphoto-1308415974-170667a.jpg"/>
+        </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="203*"/>
             <ColumnDefinition Width="269*"/>
             <ColumnDefinition Width="428*"/>
         </Grid.ColumnDefinitions>
-        <WrapPanel Orientation="Horizontal" Margin="93,65,57,105" Grid.ColumnSpan="3">
-            <Button x:Name="BtnDeck1" Width="200" Height="150" Margin="30,5,5,5" Click="BtnDeck1_Click" Visibility="Visible" Background="Aquamarine" BorderBrush="Black" BorderThickness="2" DataContext="{Binding Mode=OneWay}" InputScope="Default" >
+        <WrapPanel Orientation="Horizontal" Margin="93,120,57,105" Grid.ColumnSpan="3">
+            <WrapPanel.Background>
+                <ImageBrush/>
+            </WrapPanel.Background>
+            <Button x:Name="BtnDeck1" Width="200" Height="150" Margin="30,5,5,5" Click="BtnDeck1_Click" Visibility="Visible" BorderThickness="2" DataContext="{Binding Mode=OneWay}" InputScope="Default" Background="#FFD780EA" >
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
                 </Button.Effect>
-                <TextBox x:Name="txtDeck1" IsReadOnly="True" Text="Deck1" TextWrapping="Wrap" FontSize="20" Background="Aquamarine" BorderBrush="Aquamarine" IsManipulationEnabled="False" IsReadOnlyCaretVisible="True" ></TextBox>
+                <TextBox x:Name="txtDeck1" IsReadOnly="True" Text="Deck1" TextWrapping="Wrap" FontSize="20" IsManipulationEnabled="False" IsReadOnlyCaretVisible="True" BorderBrush="{x:Null}" Background="{x:Null}" />
             </Button>
-            <Button x:Name="BtnDeck2" Width="200" Height="150" Margin="20,5,5,5" Click="BtnDeck2Click" Visibility="Visible" Background="Aquamarine" BorderBrush="Black" BorderThickness="2" >
+            <Button x:Name="BtnDeck2" Width="200" Height="150" Margin="20,5,5,5" Click="BtnDeck2Click" Visibility="Visible" Background="#FF80EA98" BorderBrush="{x:Null}" BorderThickness="2" >
                 <Button.DataContext>
                     <local:Deck/>
                 </Button.DataContext>
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
                 </Button.Effect>
-                <TextBox x:Name="txtDeck2" IsReadOnly="True" Text="Deck2" TextWrapping="Wrap" FontSize="20" Background="Aquamarine" BorderBrush="Aquamarine"></TextBox>
+                <TextBox x:Name="txtDeck2" IsReadOnly="True" Text="Deck2" TextWrapping="Wrap" FontSize="20" BorderBrush="{x:Null}" Background="{x:Null}"/>
             </Button>
-            <Button x:Name="BtnDeck3" Width="200" Height="150" Margin="20,5,5,5" Click="BtnDeck3Click" Visibility="Visible" Background="Aquamarine" BorderBrush="Black" BorderThickness="2" >
+            <Button x:Name="BtnDeck3" Width="200" Height="150" Margin="20,5,5,5" Click="BtnDeck3Click" Visibility="Visible" Background="#FFE1EA80" BorderBrush="Black" BorderThickness="2" >
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
                 </Button.Effect>
-                <TextBox x:Name="txtDeck3" IsReadOnly="True" Text="Deck3" TextWrapping="Wrap" FontSize="20" Background="Aquamarine" BorderBrush="Aquamarine"></TextBox>
+                <TextBox x:Name="txtDeck3" IsReadOnly="True" Text="Deck3" TextWrapping="Wrap" FontSize="20" BorderBrush="{x:Null}" Background="{x:Null}"/>
             </Button>
-            <Button x:Name="BtnDeck4" Width="200" Height="150" Margin="30,5,5,5" Click="BtnDeck4Click" Visibility="Visible" Background="Aquamarine" BorderBrush="Black" BorderThickness="2" >
+            <Button x:Name="BtnDeck4" Width="200" Height="150" Margin="30,5,5,5" Click="BtnDeck4Click" Visibility="Visible" Background="#FF4DA2D4" BorderBrush="Black" BorderThickness="2" >
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
                 </Button.Effect>
-                <TextBox x:Name="txtDeck4" IsReadOnly="True" Text="Deck4" TextWrapping="Wrap" FontSize="20" Background="Aquamarine" BorderBrush="Aquamarine"></TextBox>
+                <TextBox x:Name="txtDeck4" IsReadOnly="True" Text="Deck4" TextWrapping="Wrap" FontSize="20" Background="{x:Null}" BorderBrush="{x:Null}"/>
             </Button>
-            <Button x:Name="BtnDeck5" Width="200" Height="150" Margin="20,5,5,5" Click="BtnDeck5Click" Visibility="Visible" Background="Aquamarine" BorderBrush="Black" BorderThickness="2" >
+            <Button x:Name="BtnDeck5" Width="200" Height="150" Margin="20,5,5,5" Click="BtnDeck5Click" Visibility="Visible" Background="#FFEA8080" BorderBrush="Black" BorderThickness="2" >
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
                 </Button.Effect>
-                <TextBox x:Name="txtDeck5" IsReadOnly="True" Text="Deck5" TextWrapping="Wrap" FontSize="20" Background="Aquamarine" BorderBrush="Aquamarine"></TextBox>
+                <TextBox x:Name="txtDeck5" IsReadOnly="True" Text="Deck5" TextWrapping="Wrap" FontSize="20" Background="{x:Null}" BorderBrush="{x:Null}"/>
             </Button>
-            <Button x:Name="BtnDeck6" Width="200" Height="150" Margin="20,5,5,5" Click="BtnDeck6Click" Visibility="Visible" Background="Aquamarine" BorderBrush="Black" BorderThickness="2" >
+            <Button x:Name="BtnDeck6" Width="200" Height="150" Margin="20,5,5,5" Click="BtnDeck6Click" Visibility="Visible" Background="#FFD28B4E" BorderBrush="Black" BorderThickness="2" >
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
                 </Button.Effect>
-                <TextBox x:Name="txtDeck6" IsReadOnly="True" Text="Deck6" TextWrapping="Wrap" FontSize="20" Background="Aquamarine" BorderBrush="Aquamarine"></TextBox>
+                <TextBox x:Name="txtDeck6" IsReadOnly="True" Text="Deck6" TextWrapping="Wrap" FontSize="20" Background="{x:Null}" BorderBrush="{x:Null}"/>
             </Button>
         </WrapPanel>
-        <StackPanel Orientation="Horizontal" Margin="166,495,146,15" Grid.ColumnSpan="3">
-            <Button x:Name="BtnStudy" Content="Study" Width="150" Height="50" VerticalAlignment="Center" Margin="10,1,1,1" Visibility="Visible" FontSize="24" Background="LightSlateGray"  BorderBrush="Black" BorderThickness="2" Click="BtnStudyClick">
+        <StackPanel Orientation="Horizontal" Margin="155,476,157,34" Grid.ColumnSpan="3">
+            <Button x:Name="BtnStudy" Content="Study" Width="150" Height="50" VerticalAlignment="Center" Margin="10,1,1,1" Visibility="Visible" FontSize="24" Background="#FF98DC83"  BorderBrush="Black" BorderThickness="2" Click="BtnStudyClick">
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
                 </Button.Effect>
             </Button>
-            <Button x:Name="BtnDelete" Content="Delete" Width="150" Height="50" VerticalAlignment="Center" Margin="55,1,1,1" Visibility="Visible" FontSize="24" Background="LightSlateGray"  BorderBrush="Black" BorderThickness="2" Click="BtnDelete_Click">
+            <Button x:Name="BtnDelete" Content="Delete" Width="150" Height="50" VerticalAlignment="Center" Margin="55,1,1,1" Visibility="Visible" FontSize="24" Background="#FFDDB7C4"  BorderBrush="Black" BorderThickness="2" Click="BtnDelete_Click">
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
                 </Button.Effect>
             </Button>
-            <Button x:Name="BtnEdit" Content="Modify" Width="150" Height="50" VerticalAlignment="Center" Margin="50,1,1,1" Visibility="Visible" FontSize="24" Background="LightSlateGray" BorderBrush="Black" BorderThickness="2" Click="BtnEditClick">
+            <Button x:Name="BtnEdit" Content="Modify" Width="150" Height="50" VerticalAlignment="Center" Margin="50,1,1,1" Visibility="Visible" FontSize="24" Background="#FFDDDBBB" BorderBrush="Black" BorderThickness="2" Click="BtnEditClick">
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
                 </Button.Effect>

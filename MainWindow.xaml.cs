@@ -25,7 +25,7 @@ namespace Flashcards
     public partial class MainWindow : Window
     {
         DeckRepository deckRepository;
-        FlashCardsEntities entity;
+        
         private void BtnsVisible()
         {
             BtnStudy.Visibility = Visibility.Visible;
@@ -73,7 +73,7 @@ namespace Flashcards
         private void LoadDecks()
         {
             // Method to populate each deck button with each card's data for use in methods.
-            FlashCardsEntities flashCardsEntities = new FlashCardsEntities();
+            
             DeckRepository deckRepository = new DeckRepository();
             List<Deck> sortdeck = new List<Deck>(deckRepository.GetAllDecks());
             // Locates index of lowest Deck ID (Primary Key) of decks in deck table
@@ -93,7 +93,7 @@ namespace Flashcards
         private void MovetoStudy(int id)
         {
             deckRepository = new DeckRepository();
-            entity = new FlashCardsEntities();
+            
             Deck studydeck = deckRepository.FindDeck(id);
             // Have to count cards in deck to handle null ref exception
             // prevents end user from entering the study deck with no cards
@@ -142,7 +142,7 @@ namespace Flashcards
 
             // Button Tag is passed into method call
             deckRepository = new DeckRepository();
-            entity = new FlashCardsEntities();
+           
             Deck deletedeck = deckRepository.FindDeck(btnId);
             MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show($"Are you sure you want to delete {deletedeck.Name} and all it's cards?", "Delete Confirmation", MessageBoxButton.YesNo);
             if (messageBoxResult == MessageBoxResult.Yes)
@@ -152,8 +152,9 @@ namespace Flashcards
             // Refreshing and reloading button objects on form
             DecksInvisible();
             LoadDecks();
-            
+            ResetButtons();
             this.InitializeComponent();
+            // Click += new EventHandler(button1_Click);
         }
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
@@ -164,6 +165,7 @@ namespace Flashcards
             else if (BtnDeck4.IsEnabled == true){ConfirmDelete((int)BtnDeck4.Tag);}
             else if (BtnDeck5.IsEnabled == true){ConfirmDelete((int)BtnDeck5.Tag);}
             else if (BtnDeck6.IsEnabled == true){ConfirmDelete((int)BtnDeck6.Tag);}
+            ResetButtons();
         }
         #region Deck Button Click Events
 
@@ -208,13 +210,38 @@ namespace Flashcards
             BtnsVisible();
         }
         #endregion
-
+        private void ResetButtons()
+        {
+            EnableDeckBtns();
+            BtnStudy.Visibility = Visibility.Hidden;
+            BtnEdit.Visibility = Visibility.Hidden;
+            BtnDelete.Visibility = Visibility.Hidden;
+        }
         private void MainDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             EnableDeckBtns();
             BtnStudy.Visibility = Visibility.Hidden;
             BtnEdit.Visibility = Visibility.Hidden;
             BtnDelete.Visibility = Visibility.Hidden;
+        }
+
+        private void MakeCards()
+        {
+            // Call this method to quickly populate test data 
+            deckRepository = new DeckRepository();
+            
+            Deck deck = new Deck();
+            deck.Name = "Test Deck";
+            deckRepository.AddDeck(deck);
+
+            for (int i=0; i<9; i++)
+            {
+                Card card = new Card();
+                card.Deck_Id = deck.Id;
+                card.Question = $"This is Question: {i}";
+                card.Answer = $"And an Answer: {i}";
+                deckRepository.AddCard(card);
+            }
         }
     }
 }
