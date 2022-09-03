@@ -28,22 +28,26 @@ namespace Flashcards
         public MainWindow()
         {
             InitializeComponent();
-            // Have to call Loaddecks function twice 1. to populate decks 2. so make visible if they are populated
+            // Have to call Loaddecks function twice
+            // 1. to populate decks 2. to make visible once they are populated
             LoadDecks();
             DecksInvisible();
             LoadDecks();
+            // Lower 3 buttons visibility is dependant on deck button click
             BtnStudy.Visibility = Visibility.Hidden;
             BtnEdit.Visibility = Visibility.Hidden;
             BtnDelete.Visibility = Visibility.Hidden;
         }
         private void BtnsVisible()
         {
+            // Makes lower 3 buttons visible
             BtnStudy.Visibility = Visibility.Visible;
             BtnEdit.Visibility = Visibility.Visible;
             BtnDelete.Visibility = Visibility.Visible;
         }
         private void DecksInvisible()
         {
+            // Makes all deck buttons invisible
             BtnDeck1.Visibility = Visibility.Collapsed;
             BtnDeck2.Visibility = Visibility.Collapsed;
             BtnDeck3.Visibility = Visibility.Collapsed;
@@ -53,6 +57,7 @@ namespace Flashcards
         }
         private void DisableDeckBtns()
         {
+            // Disables all deck buttons
             BtnDeck1.IsEnabled = false;
             BtnDeck2.IsEnabled = false;
             BtnDeck3.IsEnabled = false;
@@ -62,6 +67,7 @@ namespace Flashcards
         }
         private void EnableDeckBtns()
         {
+            // Enables all deck buttons
             BtnDeck1.IsEnabled = true;
             BtnDeck2.IsEnabled = true;
             BtnDeck3.IsEnabled = true;
@@ -121,6 +127,7 @@ namespace Flashcards
         }
         private void MovetoModify(int id)
         {
+            // creates new Modify form. Opens new form and closes main window.
             Modify modify = new Modify(id);
             this.Visibility = Visibility.Collapsed;
             modify.Visibility = Visibility.Visible;
@@ -128,6 +135,8 @@ namespace Flashcards
         private void BtnEditClick(object sender, RoutedEventArgs e)
         {
             // Open up Modify Deck Window
+            // Check to see which Deck button is active passes variable present in
+            // button tag to the move to modify function
             if (BtnDeck1.IsEnabled == true) { MovetoModify((int)BtnDeck1.Tag); }
             else if (BtnDeck2.IsEnabled == true) { MovetoModify((int)BtnDeck2.Tag); }
             else if (BtnDeck3.IsEnabled == true) { MovetoModify((int)BtnDeck3.Tag); }
@@ -142,7 +151,6 @@ namespace Flashcards
 
             // Button Tag is passed into method call
             deckRepository = new DeckRepository();
-           
             Deck deletedeck = deckRepository.FindDeck(btnId);
             MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show($"Are you sure you want to delete {deletedeck.Name} and all it's cards?", "Delete Confirmation", MessageBoxButton.YesNo);
             if (messageBoxResult == MessageBoxResult.Yes)
@@ -154,7 +162,7 @@ namespace Flashcards
             LoadDecks();
             ResetButtons();
             this.InitializeComponent();
-            // Click += new EventHandler(button1_Click);
+            
         }
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
@@ -168,7 +176,9 @@ namespace Flashcards
             ResetButtons();
         }
         #region Deck Button Click Events
-
+        // Button click evens relateed to each button for a deck of cards
+        // When button is click it flags the one that is enabled
+        // first disables all buttons, then enables the clicked one as true
         private void BtnDeck1_Click(object sender, RoutedEventArgs e)
         {
             DisableDeckBtns();
@@ -212,13 +222,16 @@ namespace Flashcards
         #endregion
         private void ResetButtons()
         {
+            // Resets form to the initial state 
             EnableDeckBtns();
             BtnStudy.Visibility = Visibility.Hidden;
             BtnEdit.Visibility = Visibility.Hidden;
             BtnDelete.Visibility = Visibility.Hidden;
         }
-        private void MainDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void MainDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            // this event is to create a way to reset the form to the initial state by
+            // double clicking on the main form.
             EnableDeckBtns();
             BtnStudy.Visibility = Visibility.Hidden;
             BtnEdit.Visibility = Visibility.Hidden;
